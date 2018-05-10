@@ -1,2 +1,4 @@
 theme: jekyll-theme-minimal
 logo: "/logo.png"
+title: "Başlık"
+description: "Açıklama"
