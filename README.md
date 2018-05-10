@@ -1,26 +1,25 @@
-/**
- * KabileOnline
- *
- * A multiplayer massive browser-based online strategy game project.
- *
- * @package  	KabileOnline
- * @author		Kabile Online Team (akjmgalp, metalsimyaci)
- * @copyright	Copyright (c) 2007 - 2012, KAON, Inc.
- * @license		http://www.kabileonline.com/license.html
- * @link		  http://www.kabileonline.com
- * @since		  Version 3.0
- */
+# KabileOnline
+A multiplayer massive browser-based online strategy game project.
+copyright KAONStudio, Inc.
 
-// ------------------------------------------------------------------------
+ since		  Version 3.0, 4.0
+ Copyright (c) 2007 - 2012 - 2018, KAON, Inc.
+ 
+## Project Page
+[kabileonline.com](http://kabileonline.com)
 
-/**
- * KabileOnline Used Technologies
- *
- * This project is based on PHP CodeIgniter Framework 2.1.2 
- *
- * @language	server-side: php
- * @language	client-side: html5
- * @scripts 	javascript, ajax, jquery, actionscript
- */
+## KabileOnline Used Technologies
 
-FOR MORE INFORMATION PLS VISIT OUR DEVELOPMENT PLATFORM: http://code.google.com/p/kabileonline
+* [Codeigniter](https://codeigniter.com/) - The PHP framework
+* [PHP](https://secure.php.net/) - server side
+
+## Authors
+
+* [**akjmgalp**](https://github.com/thebilge)
+* [**metalsimyaci**](https://github.com/metalsimyaci)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+See also the list of [contributors](https://github.com/KaOnStudio/kabileonline/contributors) who participated in this project.
