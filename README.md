@@ -1,9 +1,9 @@
 # KabileOnline
 A multiplayer massive browser-based online strategy game project.
 
-since		  Version 3.0, 4.0
+@since		  Version 3.0, 4.0
 
-Copyright (c) 2007 - 2012 - 2018, KAON, Inc.
+@Copyright (c) 2012 - 2018, KAON, Inc.
  
 ## Project Page
 [kabileonline.com](http://kabileonline.com)
@@ -15,8 +15,8 @@ Copyright (c) 2007 - 2012 - 2018, KAON, Inc.
 
 ## Authors
 
-* [**akjmgalp**](https://github.com/thebilge)
-* [**metalsimyaci**](https://github.com/metalsimyaci)
+* [akjmgalp](https://github.com/thebilge)
+* [metalsimyaci](https://github.com/metalsimyaci)
 
 ## License
 
@@ -26,5 +26,5 @@ See also the list of [contributors](https://github.com/KaOnStudio/kabileonline/c
 
 ## Acknowledgments
 
-The kabileonline team would like to thank KaOSStudio, all the contributors to the Kabileonline project, out mentor Gurhan GÜNDÜZ
+The kabileonline team would like to thank KaOSStudio, all the contributors to the Kabileonline project, out mentor Gürhan GÜNDÜZ
 
