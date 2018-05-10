@@ -6,7 +6,11 @@ A multiplayer massive browser-based online strategy game project.
 @Copyright (c) 2012 - 2018, KAON, Inc.
  
 ## Project Page
-[kabileonline.com](http://kabileonline.com)
+* [Live Game Page](http://kabileonline.com)
+
+* [Project Page](http://kaonstudio.github.io/kabileonline/)
+
+* [Github Page](https://github.com/KaOnStudio/kabileonline)
 
 ## KabileOnline Used Technologies
 
