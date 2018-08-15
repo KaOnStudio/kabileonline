@@ -22,7 +22,7 @@ npm run build --report
 ```
 
 
-## KabileOnline Used Technologies
+## Used Technologies
 
 * [Vue](https://vuejs.org/)
 * [Express](https://expressjs.com/)
@@ -41,4 +41,4 @@ See also the list of [contributors](https://github.com/KaOnStudio/kabileonline/c
 
 ## Acknowledgments
 
-The KaOnStudio would like to thank to all the contributors to the project.
+The KaOnStudio would like to thank to all the contributors to the project, and loves the players.
