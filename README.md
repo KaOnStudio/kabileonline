@@ -4,13 +4,6 @@ A massive multiplayer browser-based online strategy game project.
 @since		  Version 3.0, 4.0
 
 @Copyright (c) 2012 - 2018, KAON, Inc.
- 
-## Project Page
-* [Live Game Page](http://kabileonline.com)
-
-* [Project Page](http://kaonstudio.github.io/kabileonline/)
-
-* [Github Page](https://github.com/KaOnStudio/kabileonline)
 
 ## Build Setup
 
@@ -31,8 +24,9 @@ npm run build --report
 
 ## KabileOnline Used Technologies
 
-* [Codeigniter](https://codeigniter.com/) - The Codeigniter - 2.2.11 
-* [PHP](https://secure.php.net/) - PHP version 5.6 or newer is recommended.
+* [Vue](https://vuejs.org/)
+* [Express](https://expressjs.com/)
+* [PWA](https://developers.google.com/web/progressive-web-apps/) - Progressive Web Application
 
 ## Authors
 
