@@ -1,0 +1,19 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+	
+s|Label
+{
+	color: #2E41A2;
+	fontFamily:;
+	fontStyle: italic;
+	fontWeight: bold;
+	paddingBottom: 20;
+	paddingLeft: 10;
+	paddingRight: 10;
+	paddingTop: 10;
+	textAlign: left;
+	textDecoration: none;
+	verticalAlign: middle;
+}
+	

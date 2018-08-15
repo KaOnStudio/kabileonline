@@ -1,0 +1,17 @@
+﻿body
+{
+    background: #000000;
+    color: #FFFFFF;
+    font-family: 'Molle', cursive;
+}
+h1{ margin: 0;padding: 0;font-size: 30px;line-height: 30px;}
+hr{ margin: 0;padding: 0;}
+p{ line-height: 20px;font-size: 20px;text-align: justify;}
+.Ortala{ margin: 3% auto;width: 75%;}
+.logo{background: #000000 url(../img/kabileOnlineLogo_Siyah.png) no-repeat 50% -50%;
+    width: 325px;
+    height: 426px;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+}

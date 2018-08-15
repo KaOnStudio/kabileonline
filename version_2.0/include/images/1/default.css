@@ -1,0 +1,129 @@
+body.q_body {
+ background-color:3c3427;
+ background-attachment: fixed;
+ overflow-x: hidden;
+ font: Arial;
+}
+
+font.q_label {
+ color: orange;
+ font-family: Arial;
+ font-size: 16px;
+ text-align: center;
+}
+
+font.q_text {
+ color: black;
+ font-family: Arial;
+ font-size: 16px;
+ text-align: center;
+}
+
+a.q_link {
+ font-family: Arial;
+ color: black;
+ text-decoration: none;
+ font-style: oblique;
+ font-weight: bold;
+}
+
+a.q_link:hover {
+color: orange;
+}
+
+table.q_table {
+ background-color: #BEC1C6;
+ border-color: white;
+ font-family: Arial;
+ font-style: normal;
+ border-style: solid;
+ text-indent: 10px;
+ border-collapse: collapse;
+ border-width: 0;
+ margin-left: auto;
+ margin-right: auto;
+ width: 600;
+}
+
+table.q_table_desc {
+ background-color: #BEC1C6;
+ border-color: white;
+ font-family: Arial;
+ font-style: normal;
+ color: black;
+ border-style: solid;
+ border-width: 0;
+ margin: 10px;
+ text-indent: 10px;
+}
+
+td.td_logo{
+ height: 90;
+ border-bottom-width: 1;
+ border-bottom-style: solid;
+ border-bottom-color: white;
+ text-indent: 0px;
+}
+
+td.td_top_menu {
+ background-color: #585858;
+ height: 40;
+ border-bottom-width: 1;
+ border-bottom-style: solid;
+ border-bottom-color: white;
+}
+
+td.td_content {
+ height: 366;
+ text-align: center;
+}
+
+td.td_bottom_menu {
+ background-color: #585858;
+ height: 40;
+ text-align: right;
+ border-top-width: 1;
+ border-top-style: solid;
+ border-top-color: white;
+}
+
+td.head_table {
+ color: black;
+ font-family: Arial;
+ background-color: #9FA4AC;
+}
+
+input.textbox, input.button, textarea.textbox, select.dropdown {
+ font-size: 10pt;
+ font-family: "arial";
+ background-color: white;
+ border: 1px solid #F3F3F3;
+}
+
+textarea.textbox:focus {
+ font-size: 10pt;
+ font-family: "arial";
+ background-color: white;
+ border: 1px solid #000000;
+}
+
+input.textbox:focus, input.button:focus, select.dropdown:focus {
+ font-size: 10pt;
+ font-family: "arial";
+ background-color: orange;
+ border: 1px solid #000000;
+}
+
+input.textbox:hover, input.button:hover, textarea.textbox:hover, select.dropdown:hover {
+ font-size: 10pt;
+ font-family: "arial";
+ border: 1px solid #000000;
+}
+
+ul#tabs { list-style-type: none; margin: 30px 0 0 0; padding: 0 0 0.3em 0; }
+ul#tabs li { display: inline; }
+ul#tabs li a { color: black; background-color: #c0c0c0; border: 2px solid White; border-bottom: none; padding: 0.4em; text-decoration: none; }
+ul#tabs li a:hover { background-color: #F3F3F3; }
+ul#tabs li a.selected { color: #000; background-color: White; font-weight: bold; padding: 0.7em 0.3em 0.38em 0.3em; }
+div.tabContent { border: 2px solid White; padding: 0.5em; background-color: gray; }
+div.tabContent.hide { display: none; }

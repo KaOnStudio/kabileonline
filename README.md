@@ -1,5 +1,5 @@
 # KabileOnline
-A multiplayer massive browser-based online strategy game project.
+A massive multiplayer browser-based online strategy game project.
 
 @since		  Version 3.0, 4.0
 
@@ -11,6 +11,23 @@ A multiplayer massive browser-based online strategy game project.
 * [Project Page](http://kaonstudio.github.io/kabileonline/)
 
 * [Github Page](https://github.com/KaOnStudio/kabileonline)
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+```
+
 
 ## KabileOnline Used Technologies
 
@@ -30,5 +47,4 @@ See also the list of [contributors](https://github.com/KaOnStudio/kabileonline/c
 
 ## Acknowledgments
 
-The kabileonline team would like to thank KaOSStudio, all the contributors to the Kabileonline project, out mentor Gürhan GÜNDÜZ
-
+The KaOnStudio would like to thank to all the contributors to the project.

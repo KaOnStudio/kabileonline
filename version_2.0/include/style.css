@@ -1,0 +1,297 @@
+﻿/*********************
+	HTML Elements
+*********************/
+*{
+	margin			: 0;
+	padding			: 0;
+}
+a{
+	text-decoration	: none;
+	color			: #6a0606;
+}
+
+/*********************
+	Fonts
+*********************/
+@font-face {
+ font-family: VikingFont;
+ src: url("fonts/VIKING-N.ttf"); 
+}
+
+@font-face {
+ font-family: BloodFont;
+ src: url("fonts/dblftr15.ttf"); 
+}
+
+@font-face {
+ font-family: PapirusFont;
+ src: url("fonts/papyrus.ttf"); 
+}
+
+/*********************
+	Tabs
+*********************/
+ul#tabs { list-style-type: none; margin: 30px 0 0 0; padding: 0 0 0.3em 0; }
+ul#tabs li { display: inline; }
+ul#tabs li a { color: black; background-color: #c0c0c0; border: 2px solid White; border-bottom: none; padding: 0.4em; text-decoration: none; }
+ul#tabs li a:hover { background-color: #F3F3F3; }
+ul#tabs li a.selected { color: #000; background-color: White; font-weight: bold; padding: 0.7em 0.3em 0.38em 0.3em; }
+div.tabContent { border: 2px solid White; padding: 0.5em; background-color: gray; }
+div.tabContent.hide { display: none; }
+
+/*********************
+	Structure
+*********************/
+.wrapper{
+	width			: 100%;
+	height			: 100%;
+	margin			: 0px 0px 0px 0px;
+}
+.main{
+	width			: 920px;
+	height			: auto;
+	margin-top		: 0px;
+	margin-bottom	: 0px;
+	margin-left		: 170px;
+	padding			: 0px 23px 0px 20px;
+	border			: none;
+	background-color: #000;
+	/*background		: url(images/cerceve3.png) repeat-y;*/
+}
+.header{
+	background		: url(images/bannerUst.jpg) no-repeat;
+	width			: 897px;
+	height			: 134px;
+	margin			: 0px 0px 0px 0px;
+	border			: none;
+}
+.login{
+	background		: url(images/bannerOrta.png) no-repeat;
+	width			: 897px;
+	height			: 40px;
+	margin			: 0px 0px 0px 0px;
+	padding			: 0px 0px 0px 0px;
+	border			: none;
+	text-decoration : none;
+}
+.ustPanel{
+	background		: url(images/bannerPanel.jpg) no-repeat;
+	width			: 897px;
+	height			: 175px;
+	margin			: 0px 0px 0px 0px;
+	padding			: 0px 0px 0px 0px;
+	border			: none;
+}
+.olumluMesaj{
+	background-color: #030;
+	color			: #DDD;
+	width			: 800px; 
+	height			: 20px; 
+	margin-left		: 50px; 
+	font-weight		: bold; 
+	text-align		: center; 
+	border			: solid #080;
+	font-family		: 'Comic Sans MS', cursive; 
+	font-size		: 14px;
+	position		: absolute;
+border-radius:8px; /*CSS3 border radius*/
+-moz-border-radius:8px;
+-webkit-border-radius:8px;
+box-shadow:0 0 10px #008800; /*CSS3 shadow*/
+-moz-box-shadow:0 0 10px #008800;
+-webkit-box-shadow:0 0 10px #008800;	
+}
+.olumsuzMesaj{
+	background-color: #300;
+	width			: 800px; 
+	height			: 20px; 
+	margin-left		: 50px; 
+	color			: #DDD; 
+	font-weight		: bold;  
+	text-align		: center; 
+	border			: solid #800; 
+	font-family		: 'Comic Sans MS', cursive; 
+	font-size		: 14px;
+	position		: absolute;	
+border-radius:8px; /*CSS3 border radius*/
+-moz-border-radius:8px;
+-webkit-border-radius:8px;
+box-shadow:0 0 10px #880000; /*CSS3 shadow*/
+-moz-box-shadow:0 0 10px #880000;
+-webkit-box-shadow:0 0 10px #880000;	
+}
+.bilgiMesaj{
+	background-color: #330;
+	width			: 800px; 
+	height			: 20px; 
+	margin-left		: 50px; 
+	color			: #DDD; 
+	font-weight		: bold; 
+	text-align		: center; 
+	border			: solid #880; 
+	font-family		: 'Comic Sans MS', cursive; 
+	font-size		: 14px;	
+	position		: absolute;	
+border-radius:8px; /*CSS3 border radius*/
+-moz-border-radius:8px;
+-webkit-border-radius:8px;
+box-shadow:0 0 10px #888800; /*CSS3 shadow*/
+-moz-box-shadow:0 0 10px #888800;
+-webkit-box-shadow:0 0 10px #888800;
+}
+.mapBackground{ 
+	position		: absolute; 
+	width			: 640px; 
+	height			: 320px; 
+	margin-left		: 130px; 
+	margin-top		: -8px;
+	background-color: #f0d59c;
+filter:alpha(opacity=70); /*CSS3 opacity*/
+-moz-opacity:.70;
+opacity:.70;
+border-radius:18px; /*CSS3 border radius*/
+-moz-border-radius:18px;
+-webkit-border-radius:18px;
+box-shadow:0 0 10px #f0d59c; /*CSS3 shadow*/
+-moz-box-shadow:0 0 10px #f0d59c;
+-webkit-box-shadow:0 0 10px #f0d59c;
+}
+.mapBackground2{ 
+	position		: absolute; 
+	width			: 870px; 
+	height			: 100px; 
+	margin-left		: 15px; 
+	margin-top		: 317px;
+	background-color: #f0d59c;
+	color 			: #6a0606;
+	font-family		: PapirusFont;
+	font-weight		: bold;
+filter:alpha(opacity=70); /*CSS3 opacity*/
+-moz-opacity:.70;
+opacity:.70;
+border-radius:28px; /*CSS3 border radius*/
+-moz-border-radius:28px;
+-webkit-border-radius:28px;
+box-shadow:0 0 10px #f0d59c; /*CSS3 shadow*/
+-moz-box-shadow:0 0 10px #f0d59c;
+-webkit-box-shadow:0 0 10px #f0d59c;
+}
+.usernamediv{
+	float			: left; 
+	background		: url(images/userName.png) no-repeat;
+	width			: 211px; 
+	height			: 54px;
+}
+.passworddiv{
+	float			: left; 
+	background		: url(images/pass.png); 
+	width			: 211px; 
+	height			: 54px;
+}
+.textboxdiv{
+	background		: url(images/textbox.png) no-repeat; 
+	text-align      : center;
+	width			: 255px; 
+	height			: 40px;
+	float			: left;
+}
+.textbox{
+	text-align      : center;
+	background		: none; 
+	border			: none; 
+	text-decoration	: none; 
+	width			: 130px; 
+	color			: #666;
+	margin-top      : 12px;
+	background-color:none;
+	font			: 'Comic Sans MS', cursive; 
+	font-weight		: bold;
+}
+.usernametext{
+	background		: none; 
+	border			: none; 
+	text-decoration	: none; 
+	margin			: 17px 0px 30px 67px;
+	width			: 130px; 
+	color			: #666;
+	font			: 'Comic Sans MS', cursive; 
+	font-weight		: bold;
+}
+.passwordtext{
+	background		: none; 
+	border			: none; 
+	text-decoration	: none; 
+	margin			: 17px 0px 0px 20px;
+	width			: 130px; 
+	color			: #666;
+	font			: 'Comic Sans MS', cursive; 
+	font-weight		: bold;
+}
+.buton{
+	background		: url(images/buton.png) no-repeat; 
+	width			: 128px; 
+	height			: 38px;
+}
+.mLink {
+ 	font-family		: VikingFont;
+ 	color			: orange;
+	text-decoration	: none;
+ 	font-style		: oblique;
+	font-size		: 13px;
+}
+.mLink:hover {
+	color			: #A00;
+}
+.popupWindow{
+	background		: url(images/popupWindow.png) no-repeat;
+	width			: 728px;
+	height			: 420px;
+	margin			: 0px 0px 0px 0px;
+	border			: none;
+	z-index			: 10; 
+	top				: 25%; 
+	left			: 18%;
+	color 			: #6a0606;
+	position		: absolute;
+	text-decoration : none;
+}
+.content{
+	background		: url(images/bannerContent.jpg) no-repeat;
+	width			: 897px;
+	height			: 449px;
+	margin			: 0px 0px 0px 0px;
+	border			: none;
+}
+.contentTown{
+	background		: url(images/bannerContentTown.jpg) no-repeat;
+	width			: 897px;
+	height			: 449px;
+	margin			: 0px 0px 0px 0px;
+	border			: none;
+}
+.contentIndex{
+	background		: url(images/bannerContentIndex.jpg) no-repeat;
+	width			: 897px;
+	height			: 449px;
+	margin			: 0px 0px 0px 0px;
+	border			: none;
+}
+.contentRegister{
+	background		: url(images/bannerContentRegister.jpg) no-repeat;
+	width			: 897px;
+	height			: 449px;
+	margin			: 0px 0px 0px 0px;
+	border			: none;
+}
+.footer{
+	background		: url(images/bannerFooter.jpg) no-repeat;
+	width			: 897px;
+	height			: 80px;
+	margin			: 0px 0px 0px 0px;
+}
+.footerIndex{
+	background		: url(images/bannerFooterIndex.jpg) no-repeat;
+	width			: 897px;
+	height			: 20px;
+	margin			: 0px 0px 0px 0px;
+}

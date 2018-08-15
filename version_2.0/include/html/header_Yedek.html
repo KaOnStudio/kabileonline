@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="include/style.css" />
+<script language="JavaScript" type="text/javascript" src="include/default.js"></script>
+<title>KABİLE ONLİNE</title>
+</head>
+<body bgcolor="#000">
+<div class="wrapper">
+	<div class="main">
+    	<div class="header"></div>
+        <div class="login">
+        	<?php
+            	if(curPageURL() == "index.php")
+                {
+                    ?>
+                    <img src="include/images/zincirSol.png" style="text-decoration:none; border:none; float:left; width:50px; height:54px;" />
+                    <?php 
+            	}
+                else
+                {
+                	?>
+                    <div style="text-decoration:none; border:none; float:left; width:50px; height:54px;" ></div>
+                    <?php
+                }
+            ?>
+            <?php
+            	if(curPageURL() == "index.php")
+                {
+                    ?>
+                    <a href="register.php" class="mLink" style="float:left; margin-left:5px; margin-top:12px;" >kayıt ol</a>
+                    <?php 
+            	}
+                else
+                {
+                	?>
+                    <a href="index.php" class="mLink" style="float:left; margin-left:5px; margin-top:12px;" >anasayfa</a>
+                    <?php
+                }
+            ?>
+            <!--<img src="include/images/kayitOl.png" id="kayitOl" style="float:left; width:108px; height:54px; border:none; text-decoration:none;" />-->
+             
+            <div id="forlogin" style="width:587px; float:left; margin-top:12px; text-align:center;">
+            	<a href="#" class="mLink" onclick="gosterKapat('forlogin','loginPaneli');" style="float:left; margin-left:250px;">giriş yap</a>
+            </div>
+                <!--<img src="include/images/girisyap.png" id="girisyap" onclick="gosterKapat('forlogin','loginPaneli');" onMouseOver="linkHover('girisyap')" onMouseOut="linkOut('girisyap')" style="cursor:pointer; width:92px; height:24px; border:none; text-decoration:none;" />-->
+            
+            <form method="post" id="loginolmaformu" action="index.php" onsubmit="return loginKontrol();">
+            <div id="loginPaneli" style="display:none; margin-top:0px;">
+                <div class="usernamediv">
+                    <input type="text" id="username" name="username" class="usernametext" value="Kullanıcı Adınız" onFocus="text_focus('username')" onBlur="text_blur('username')" />
+                </div>
+                <div class="passworddiv">
+                    <input type="text" id="password" name="password" class="passwordtext" value="Sifreniz" onFocus="text_focus('password')" onBlur="text_blur('password')" />
+                </div>
+				<input type="submit" value="" style="background: url('include/images/login.png'); border:none; text-decoration:none; float:left; width:165px; height:54px; cursor:pointer;" />
+            </div>
+            </form>			
+			<?php
+            	if(curPageURL() == "forgot.php")
+                {
+                    ?>
+                    <a href="register.php" class="mLink" style="float:left; margin-left:10px; margin-top:12px;" >kayıt ol</a>
+                    <?php 
+            	}
+                else
+                {
+                	?>
+                    <a href="forgot.php" class="mLink" style="float:left; margin-left:10px; margin-top:12px;" >şifrem neydi</a>
+                    <?php
+                }
+            ?>
+    		<!--<img src="include/images/sifremNeydi.png" id="sifremNeydi" style="float:left; width:118px; height:54px; border:none; text-decoration:none;" />-->
+            
+            <?php
+            	if(curPageURL() == "index.php")
+                {
+            		?>
+    				<img src="include/images/zincirSag.png" style="float:right; width:30px; height:54px; margin-right:0px;" />
+            		<?php 
+            	}
+                else
+                {
+                	?>
+                    <div style="float:right; width:30px; height:54px; margin-right:0px;" ></div>
+                    <?php
+                }
+            ?>
+        </div>

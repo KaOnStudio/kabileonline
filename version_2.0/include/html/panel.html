@@ -1,0 +1,285 @@
+<?php
+	if (isset($_SESSION["user"][0], $_GET["town"]))
+	{
+		$_GET["town"]=clean($_GET["town"]);
+		$_GET["town"]=clean($_GET["town"]);
+		check_a($_GET["town"]);
+		check_t($_GET["town"]);
+		check_w($_GET["town"]);
+		check_u($_GET["town"]);
+		check_uup($_GET["town"]);
+		check_c($_GET["town"], $_SESSION["user"][10]);
+		check_r($_GET["town"]);
+		$town=town($_GET["town"]); 
+		if ($town[1]!=$_SESSION["user"][0]) {
+			git('index.php'); die();
+		}
+		$faction=faction($_SESSION["user"][10]);
+		$buildings=buildings($_SESSION["user"][10]);
+		$cq=get_c($_GET["town"]);
+		$iaq=get_ia($_GET["town"]);
+		$aq=get_a($town[0]);
+		$b_names=array(); 
+		for ($i=0; $i<22; $i++) 
+			$b_names[$i]=$buildings[$i][2];
+		
+		$data=explode("-", $town[8]); $land=explode("/", $town[13]); $land[0]=explode("-", $land[0]); $land[1]=explode("-", $land[1]); $land[2]=explode("-", $land[2]); $land[3]=explode("-", $land[3]);
+		$res=explode("-", $town[10]); $lim=explode("-", $town[11]); $prod=explode("-", $town[9]);
+		if ($prod[0]-$town[3]-$town[12]<5) $prod[0]=$town[3]+$town[12]+5;//noob protection against negative crop production values
+	}
+	else {
+		git('index.php'); die();
+	}
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="include/style.css" />
+<link rel="shortcut icon" href="arka.ico"/>
+<script language="JavaScript" type="text/javascript" src="include/default.js"></script>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="include/tooltip/speechbubbles.css" />
+<script language="JavaScript" type="text/javascript" src="include/tooltip/speechbubbles.js"></script>
+<script type="text/javascript">
+/*************************************************
+ * dom-drag.js
+ * www.youngpup.net
+ * Script featured on Dynamic Drive (http://www.dynamicdrive.com) 
+ **************************************************
+ */
+var Drag = {
+
+     obj : null,
+
+     init : function(o, oRoot, minX, maxX, minY, maxY, bSwapHorzRef, bSwapVertRef, fXMapper, fYMapper)
+     {
+          o.onmousedown     = Drag.start;
+
+          o.hmode               = bSwapHorzRef ? false : true ;
+          o.vmode               = bSwapVertRef ? false : true ;
+
+          o.root = oRoot && oRoot != null ? oRoot : o ;
+		
+          if (o.hmode  && isNaN(parseInt(o.root.style.left  ))) o.root.style.left   = "250px";
+          if (o.vmode  && isNaN(parseInt(o.root.style.top   ))) o.root.style.top    = "185px";
+          if (!o.hmode && isNaN(parseInt(o.root.style.right ))) o.root.style.right  = "0px";
+          if (!o.vmode && isNaN(parseInt(o.root.style.bottom))) o.root.style.bottom = "0px";
+		
+          o.minX     = typeof minX != 'undefined' ? minX : null;
+          o.minY     = typeof minY != 'undefined' ? minY : null;
+          o.maxX     = typeof maxX != 'undefined' ? maxX : null;
+          o.maxY     = typeof maxY != 'undefined' ? maxY : null;
+
+          o.xMapper = fXMapper ? fXMapper : null;
+          o.yMapper = fYMapper ? fYMapper : null;
+
+          o.root.onDragStart     = new Function();
+          o.root.onDragEnd       = new Function();
+          o.root.onDrag          = new Function();
+     },
+
+     start : function(e)
+     {
+          var o = Drag.obj = this;
+          e = Drag.fixE(e);
+          var y = parseInt(o.vmode ? o.root.style.top  : o.root.style.bottom);
+          var x = parseInt(o.hmode ? o.root.style.left : o.root.style.right );
+          o.root.onDragStart(x, y);
+
+          o.lastMouseX     = e.clientX;
+          o.lastMouseY     = e.clientY;
+
+          if (o.hmode) {
+               if (o.minX != null)     o.minMouseX     = e.clientX - x + o.minX;
+               if (o.maxX != null)     o.maxMouseX     = o.minMouseX + o.maxX - o.minX;
+          } else {
+               if (o.minX != null) o.maxMouseX = -o.minX + e.clientX + x;
+               if (o.maxX != null) o.minMouseX = -o.maxX + e.clientX + x;
+          }
+
+          if (o.vmode) {
+               if (o.minY != null)     o.minMouseY     = e.clientY - y + o.minY;
+               if (o.maxY != null)     o.maxMouseY     = o.minMouseY + o.maxY - o.minY;
+          } else {
+               if (o.minY != null) o.maxMouseY = -o.minY + e.clientY + y;
+               if (o.maxY != null) o.minMouseY = -o.maxY + e.clientY + y;
+          }
+
+          document.onmousemove     = Drag.drag;
+          document.onmouseup          = Drag.end;
+
+          return false;
+     },
+
+     drag : function(e)
+     {
+          e = Drag.fixE(e);
+          var o = Drag.obj;
+
+          var ey     = e.clientY;
+          var ex     = e.clientX;
+          var y = parseInt(o.vmode ? o.root.style.top  : o.root.style.bottom);
+          var x = parseInt(o.hmode ? o.root.style.left : o.root.style.right );
+          var nx, ny;
+
+          if (o.minX != null) ex = o.hmode ? Math.max(ex, o.minMouseX) : Math.min(ex, o.maxMouseX);
+          if (o.maxX != null) ex = o.hmode ? Math.min(ex, o.maxMouseX) : Math.max(ex, o.minMouseX);
+          if (o.minY != null) ey = o.vmode ? Math.max(ey, o.minMouseY) : Math.min(ey, o.maxMouseY);
+          if (o.maxY != null) ey = o.vmode ? Math.min(ey, o.maxMouseY) : Math.max(ey, o.minMouseY);
+
+          nx = x + ((ex - o.lastMouseX) * (o.hmode ? 1 : -1));
+          ny = y + ((ey - o.lastMouseY) * (o.vmode ? 1 : -1));
+
+          if (o.xMapper)          nx = o.xMapper(y)
+          else if (o.yMapper)     ny = o.yMapper(x)
+
+          Drag.obj.root.style[o.hmode ? "left" : "right"] = nx + "px";
+          Drag.obj.root.style[o.vmode ? "top" : "bottom"] = ny + "px";
+          Drag.obj.lastMouseX     = ex;
+          Drag.obj.lastMouseY     = ey;
+
+          Drag.obj.root.onDrag(nx, ny);
+          return false;
+     },
+
+     end : function()
+     {
+          document.onmousemove = null;
+          document.onmouseup   = null;
+          Drag.obj.root.onDragEnd(     parseInt(Drag.obj.root.style[Drag.obj.hmode ? "left" : "right"]), 
+                                             parseInt(Drag.obj.root.style[Drag.obj.vmode ? "top" : "bottom"]));
+          Drag.obj = null;
+     },
+
+     fixE : function(e)
+     {
+          if (typeof e == 'undefined') e = window.event;
+          if (typeof e.layerX == 'undefined') e.layerX = e.offsetX;
+          if (typeof e.layerY == 'undefined') e.layerY = e.offsetY;
+          return e;
+     }
+};
+</script>
+<script type="text/javascript" language="JavaScript">
+/***********************************************
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+jQuery(function($){ //on document.ready
+ 	//Apply tooltip to links with class="addspeech", plus look inside 'speechdata.txt' for the tooltip markups
+	$('a.addspeech').speechbubble({url:'include/tooltip/speechdata.php?town=<?php echo $town[0]; ?>',  type:'1'})
+	$('a.addspeech2').speechbubble({url:'include/tooltip/speechdata.php?town=<?php echo $town[0]; ?>', type:'2'})
+})
+</script>
+<script type="text/javascript">
+	var res_start0=<?php echo floor($res[0]);?>; 
+	var res_start1=<?php echo floor($res[1]);?>; 
+	var res_start2=<?php echo floor($res[2]);?>; 
+	var res_start3=<?php echo floor($res[3]);?>; 
+	var res_start4=<?php echo floor($res[4]);?>;
+	var res_limit0=<?php echo $lim[0];?>; 
+	var res_limit1=<?php echo $lim[1];?>; 
+	var res_limit2=<?php echo $lim[1];?>; 
+	var res_limit3=<?php echo $lim[1];?>; 
+	var res_limit4=<?php echo $lim[2];?>;
+	var res_ph0=<?php echo ($prod[0]-$town[3]-$town[12]);?>; 
+	var res_ph1=<?php echo ($prod[1]);?>; 
+	var res_ph2=<?php echo ($prod[2]);?>; 
+	var res_ph3=<?php echo ($prod[3]);?>; 
+	var res_ph4=<?php echo ($prod[4]);?>;
+	var res_sec0=0; 
+	var res_sec1=0; 
+	var res_sec2=0; 
+	var res_sec3=0; 
+	var res_sec4=0;
+</script>
+<script type="text/javascript">
+	var prev		= "";
+	var tabLinks 	= new Array();
+	var contentDivs = new Array();
+	var data = new Array(11);
+	<?php $weapons=weapons($_SESSION["user"][10]); for ($i=0; $i<count($weapons); $i++) echo "data[".$i."]='".$weapons[$i][2]."'; "; ?>
+</script>
+<title>KABİLE ONLİNE</title>
+</head>
+<body bgcolor="#000000" onLoad="startres();">
+<div class="wrapper">
+	<div class="main">
+    	<div class="ustPanel">
+			<!--//////////////////////////  SOL PANEL   //////////////////////////////-->
+			<div style="position:absolute; left:213px; top:20px; height:116px; width:194px;">
+				<table border="0" style="border-collapse: collapse; border:none; text-indent: 0;">
+					<tr style="height:40px;">
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble28" onclick="popupWindowAc('include/popup/gmill.php?town=<?php echo $town[0]; ?>','0');">		<img src="include/images/1/b0<?php if (!$data[0]) echo "_"; ?>.png"  style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble29" onclick="popupWindowAc('include/popup/lmill.php?town=<?php echo $town[0]; ?>','1');">		<img src="include/images/1/b1<?php if (!$data[1]) echo "_"; ?>.png"  style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble30" onclick="popupWindowAc('include/popup/smason.php?town=<?php echo $town[0]; ?>','2');">	<img src="include/images/1/b2<?php if (!$data[2]) echo "_"; ?>.png"  style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble31" onclick="popupWindowAc('include/popup/ifoundry.php?town=<?php echo $town[0]; ?>','3');">	<img src="include/images/1/b3<?php if (!$data[3]) echo "_"; ?>.png"  style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble32" onclick="popupWindowAc('include/popup/granary.php?town=<?php echo $town[0]; ?>','4');">	<img src="include/images/1/b4<?php if (!$data[4]) echo "_"; ?>.png"  style="width:36px; height:36px; border:none;" /></a></td>
+					</tr>
+					<tr style="height:40px;"> 
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble33" onclick="popupWindowAc('include/popup/warehouse.php?town=<?php echo $town[0]; ?>','5');">	<img src="include/images/1/b5<?php if (!$data[5]) echo "_"; ?>.png"  style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble34" onclick="popupWindowAc('include/popup/cache.php?town=<?php echo $town[0]; ?>','6');">		<img src="include/images/1/b6<?php if (!$data[6]) echo "_"; ?>.png"  style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble35" onclick="popupWindowAc('include/popup/hall.php?town=<?php echo $town[0]; ?>','7');">		<img src="include/images/1/b7<?php if (!$data[7]) echo "_"; ?>.png"  style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble36" onclick="popupWindowAc('include/popup/house.php?town=<?php echo $town[0]; ?>','8');">		<img src="include/images/1/b8<?php if (!$data[8]) echo "_"; ?>.png"  style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble37" onclick="popupWindowAc('include/popup/embassy.php?town=<?php echo $town[0]; ?>','9');">	<img src="include/images/1/b9<?php if (!$data[9]) echo "_"; ?>.png"  style="width:36px; height:36px; border:none;" /></a></td>
+					</tr>
+					<tr style="height:40px;">
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble38" onclick="popupWindowAc('include/popup/marketplace.php?town=<?php echo $town[0];?>','10');"><img src="include/images/1/b10.png<?php if (!$data[10]) echo "_"; ?>" style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble39" onclick="popupWindowAc('include/popup/cathedral.php?town=<?php echo $town[0]; ?>','11');">	<img src="include/images/1/b11<?php if (!$data[11]) echo "_"; ?>.png" style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble40" onclick="popupWindowAc('include/popup/barracks.php?town=<?php echo $town[0]; ?>','15');">	<img src="include/images/1/b15<?php if (!$data[15]) echo "_"; ?>.png" style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble41" onclick="popupWindowAc('include/popup/academy.php?town=<?php echo $town[0]; ?>','16');">	<img src="include/images/1/b16<?php if (!$data[16]) echo "_"; ?>.png" style="width:36px; height:36px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble42" onclick="popupWindowAc('include/popup/blacksmith.php?town=<?php echo $town[0]; ?>','17');"><img src="include/images/1/b17<?php if (!$data[17]) echo "_"; ?>.png" style="width:36px; height:36px; border:none;" /></a></td>
+					</tr>
+				</table>
+			</div>
+			<!--/////////////////////////////////////////////////////////////////////-->
+			
+			<!--//////////////////////////  KAYNAKLAR   //////////////////////////////-->
+			<div style="position:absolute; text-align:center; left:463px; top:33px; height:25px; width:395px; color:#6a0606; font-weight:bold; font-size:14;">
+					<a href="#" class="addspeech2" rel="#speechbubble50"><img src='include/images/1/00.gif' title='Tahıl'><span id="res0"></span></a>&nbsp;
+					<a href="#" class="addspeech2" rel="#speechbubble51"><img src='include/images/1/01.gif' title='Odun'><span id="res1"></span></a>&nbsp;
+					<a href="#" class="addspeech2" rel="#speechbubble52"><img src='include/images/1/02.gif' title='Taş'><span id="res2"></span></a>&nbsp;
+					<a href="#" class="addspeech2" rel="#speechbubble53"><img src='include/images/1/03.gif' title='Demir'><span id="res3"></span></a>&nbsp;
+					<a href="#" class="addspeech2" rel="#speechbubble54"><img src='include/images/1/04.gif' title='Altın'><span id="res4"></span></a>&nbsp;
+					<a href="#" class="addspeech2" rel="#speechbubble55"><img src='include/images/1/population.png' title='Nüfus'><?php echo ($town[3]+$town[12]); ?></a>
+			<!--
+			<img src='".$imgs.$fimgs."morale_.gif' title='Moral'>".$town[5]."</br>";
+			Üretim : <img src='".$imgs.$fimgs."00.gif' title='".$lang['crop']."'>".($prod[0]-$town[3]-$town[12])."/h 
+					<img src='".$imgs.$fimgs."01.gif' title='".$lang['lumber']."'>".$prod[1]."/h 
+					<img src='".$imgs.$fimgs."02.gif' title='".$lang['stone']."'>".$prod[2]."/h 
+					<img src='".$imgs.$fimgs."03.gif' title='".$lang['iron']."'>".$prod[3]."/h 
+					<img src='".$imgs.$fimgs."04.gif' title='".$lang['gold']."'>".$prod[4]."/h";
+			-->		
+			</div>
+			<!--///////////////////////////////////////////////////////////////////////////////-->
+			
+			<!--//////////////////////////////// ORTA PANEL ///////////////////////////////////-->
+			<div style="position:absolute; left:475px; top:77px; height:65px; width:120px;">
+				<table border="0" style="border-collapse: collapse; border:thin red; text-indent: 0;">
+					<tr style="height:33px;">
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble43"><img src="include/images/panelProfil.png" style="width:36px; height:31px; border:none;" /></a></td>
+						<?php $loc = town_xy($town[0]); $x = $loc[0]; $y = $loc[1]; ?>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble44" onclick="template('map_.php','<?php echo "x=".$x."&y=".$y; ?>');"><img src="include/images/panelHarita.png" style="width:36px; height:31px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble45" onclick="popupWindowAc('towns.php?town=<?php echo $town[0]; ?>','29');"><img src="include/images/panelKabileler.png" style="width:36px; height:31px; border:none;" /></a></td>
+					</tr>
+					<tr style="height:33px;">
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble46" onclick="popupWindowAc('troopQueue.php?town=<?php echo $town[0]; ?>','24');"><img src="include/images/panelAskerKuyruk.png" style="width:36px; height:31px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble47" onclick="popupWindowAc('buildQueue.php?town=<?php echo $town[0]; ?>','25');"><img src="include/images/panelBinaKuyruk.png" style="width:36px; height:31px; border:none;" /></a></td>
+						<td style="width:40px; padding:1px 1px 1px 1px;"><a href="#" class="addspeech2" rel="#speechbubble48" onclick="popupWindowAc('weaponQueue.php?town=<?php echo $town[0]; ?>','26');"><img src="include/images/panelSilahKuyruk.png" style="width:36px; height:31px; border:none;" /></a></td>
+					</tr>
+				</table>
+			</div>
+			<!--///////////////////////////////////////////////////////////////////////////////-->
+
+			<!--//////////////////////////  SAĞ PANEL  ////////////////////////////////////////-->
+			<div style="position:absolute; left:887px; top:26px; height:120px; width:200px;">
+				<div style="float:left; margin-top:0px; margin-left:22px;"><a href="#" class="addspeech2" rel="#speechbubble24" onclick="popupWindowAc('comingAtack.php?town=<?php echo $town[0]; ?>','27');"><img src="include/images/1/gelenSaldiri<?php if(count($iaq)==0) echo "1"; else echo "2"; ?>.png" style="border:none;"></a></div>
+				<div style="float:right; margin-top:0px; margin-right:27px;"><a href="#" class="addspeech2" rel="#speechbubble25" onclick="popupWindowAc('goingAtack.php?town=<?php echo $town[0]; ?>','28');"><img src="include/images/1/gidenSaldiri<?php if(count($aq)==0) echo "1"; else echo "2"; ?>.png" style="border:none;"></a></div>
+				<div style="clear:both; height:20px;"></div>
+				<div style="float:left;  margin-left:22px;"><a href="#" class="addspeech2" rel="#speechbubble26" onclick="popupWindowAc('include/popup/dispatch.php?town=<?php echo $town[0]; ?>','23');"><img src="include/images/1/orduButonu.png" style="border:none;"></a></div>
+				<div style="float:right; margin-right:27px;"><a href="#" class="addspeech2" rel="#speechbubble27"><img src="include/images/1/hediyeButonu1.png" style="border:none;"></a></div>	
+			</div> 
+			<!--/////////////////////////////////////////////////////////////////////////////-->
+		</div>

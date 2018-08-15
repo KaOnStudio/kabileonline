@@ -1,0 +1,2 @@
+AuthName "public_html/kabileonline.com"
+AuthUserFile "/home/hih2010/.htpasswds/public_html/kabileonline.com/passwd"
