@@ -9,9 +9,9 @@ A massive multiplayer browser-based online strategy game project.
 
 ``` bash
 # install dependencies
-npm install
+yarn
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8090
 npm run dev
 
 # build for production with minification
