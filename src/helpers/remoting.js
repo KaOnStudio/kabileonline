@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 const port = process.env.PORT || 3003;
+
 const client = axios.create({
-  baseURL: `http://localhost:${port}/api`,
+  baseURL: `${window.location.protocol}//${window.location.hostname}:${port}/api`,
   json: true
 });
 
@@ -12,11 +13,14 @@ export default {
       method,
       url: resource,
       data,
-    }).then(req => {
-      return req.data
+    }).then((req) => {
+      if (req.data) {
+        return req.data
+      }
+      return {};
     })
   },
   test() {
-    return this.execute('get', '/test')
+    return this.execute('get', '/test');
   },
 }

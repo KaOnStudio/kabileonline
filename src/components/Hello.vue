@@ -20,8 +20,7 @@
     methods: {
       async getTest() {
         const response = await remoting.test();
-        console.log(response);
-        this.name = response.name;
+        this.name = response.data.name;
       },
     }
   };
