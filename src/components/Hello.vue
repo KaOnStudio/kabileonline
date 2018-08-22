@@ -1,37 +1,49 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>Welcome to {{ name }} 3.0</h1>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'hello',
-  data() {
-    return {
-      msg: 'Welcome to Kabile Online 3.0 Vue.js PWA Application',
-    };
-  },
-};
+  import remoting from '@/helpers/remoting';
+
+  export default {
+    name: 'hello',
+    data() {
+      return {
+        name: 'hmmm',
+      };
+    },
+    async created() {
+      this.getTest()
+    },
+    methods: {
+      async getTest() {
+        const response = await remoting.test();
+        console.log(response);
+        this.name = response.name;
+      },
+    }
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
+  h1, h2 {
+    font-weight: normal;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
 
-a {
-  color: #35495E;
-}
+  a {
+    color: #35495E;
+  }
 </style>

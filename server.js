@@ -3,8 +3,13 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3003;
 const router = express.Router();
+const api = require('./src/server');
+
+app.use(cors());
+app.use(bodyParser.json());
 
 // set the static files location for the static html
+app.use('/api', api);
 app.use(express.static(`${__dirname}/dist`));
 app.engine('.html', require('ejs').renderFile);
 app.set('views', `${__dirname}/dist`);
