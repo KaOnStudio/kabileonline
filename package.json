@@ -9,7 +9,7 @@
     "start": "node express.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
-    "postinstall": "yarn && npm run build"
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "axios": "^0.18.0",
