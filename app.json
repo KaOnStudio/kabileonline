@@ -1,0 +1,8 @@
+{
+  "name": "Kabile Online",
+  "description": "El emeği göz nuru online strateji oyunu",
+  "repository": "https://github.com/KaOnStudio/kabileonline",
+  "logo": "https://www.kabileonline.com/logo.png",
+  "keywords": ["kabileonline", "kaon", "game", "..."],
+  "image": "heroku/nodejs"
+}
