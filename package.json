@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node build/dev-server.js",
-    "start": "node server.js",
+    "start": "node build/build.js && node server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src"
   },
