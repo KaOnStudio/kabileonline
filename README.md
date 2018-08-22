@@ -5,27 +5,6 @@ A massive multiplayer browser-based online strategy game project.
 
 @Copyright (c) 2012 - 2018, KAON, Inc.
 
-## Build Setup
-
-``` bash
-# install dependencies
-yarn
-
-# serve with hot reload at localhost:8090
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-## One-click Deploy
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-
 ## Used Technologies
 
 * [Vue](https://vuejs.org/)
