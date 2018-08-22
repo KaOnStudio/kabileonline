@@ -15,13 +15,8 @@
       };
     },
     async created() {
-      this.getTest()
-    },
-    methods: {
-      async getTest() {
-        const response = await remoting.test();
-        this.name = response.data.name;
-      },
+      const response = await remoting.ping();
+      this.name = response.data.name;
     }
   };
 </script>

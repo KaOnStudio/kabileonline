@@ -6,10 +6,10 @@ const client = axios.create({
 });
 
 export default {
-  async execute(method, resource, data) {
+  async execute(method, path, data) {
     return client({
       method,
-      url: resource,
+      url: path,
       data,
     }).then((req) => {
       if (req.data) {
@@ -18,7 +18,10 @@ export default {
       return {};
     })
   },
-  test() {
-    return this.execute('get', '/test');
+  async get(path, data) {
+    return this.execute('get', path, data);
+  },
+  ping() {
+    return this.get('/ping');
   },
 }
