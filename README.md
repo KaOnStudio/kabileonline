@@ -1,15 +1,14 @@
 # KabileOnline
 A massive multiplayer browser-based online strategy game project.
 
-@since		  Version 3.0, 4.0
+@since		  Version 2.0
 
 @Copyright (c) 2012 - 2018, KAON, Inc.
 
 ## Used Technologies
 
-* [Vue](https://vuejs.org/)
-* [Express](https://expressjs.com/)
-* [PWA](https://developers.google.com/web/progressive-web-apps/) - Progressive Web Application
+* [Php](https://secure.php.net/)
+* [devana](http://devana.eu/)
 
 ## Authors
 
